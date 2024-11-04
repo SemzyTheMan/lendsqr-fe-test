@@ -1,15 +1,17 @@
 import SideNav from "@/components/SideNav/SideNav";
 import TopNav from "@/components/TopNav/TopNav";
 
-export default function DashboardLayout() {
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <section className="dashboard_container">
       <TopNav />
-      <section className="dashboard_subcontainer">
+      <section className="dashboard_subcontainer ">
         <SideNav />
-        <div>
-          <p>i love my father</p>
-        </div>
+        <div className="dashboard_content">{children}</div>
       </section>
     </section>
   );

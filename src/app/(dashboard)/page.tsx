@@ -1,5 +1,7 @@
+import DashboardPageContent from "@/components/DasboardPageContent/DashboardPageContent";
+
 const Page = () => {
-  return <p>i am a boy</p>;
+  return <DashboardPageContent />;
 };
 
 export default Page;

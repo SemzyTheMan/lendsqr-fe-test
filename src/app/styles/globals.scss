@@ -30,15 +30,32 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  width: 1400px;
 }
 p {
   font-size: 1.6rem;
 }
 .dashboard_subcontainer {
   display: grid;
-  grid-template-columns: 290px 1fr;
+  grid-template-columns: 280px 1fr;
 }
 .dashboard_container {
   height: 100vh;
+  max-width: 140rem;
   overflow-y: hidden;
+}
+.dashboard_content {
+  padding: 4rem;
+  height: calc(100vh - 10rem);
+}
+
+.hide_scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.hide_scroll::-webkit-scrollbar {
+  display: none;
 }
