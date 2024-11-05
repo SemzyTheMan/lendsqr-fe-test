@@ -5,7 +5,6 @@ import PaginateComponent from "../Pagination/PaginateComponent";
 import { columns, Dashboard } from "./columns";
 import { DataTable } from "./data-table";
 import styles from "./Table.module.scss";
-import { Suspense } from "react";
 
 function getData(): Dashboard[] {
   // Fetch data from your API here.
@@ -38,7 +37,7 @@ export default function DashboardTableContent() {
   const last = page * 100;
 
   return (
-    <Suspense>
+    <>
       <DataTable columns={columns} data={data.slice(first, last)} />
       <div className={`${styles.pagination_container}`}>
         <p className={`${styles.pagination_first}`}>
@@ -59,6 +58,6 @@ export default function DashboardTableContent() {
           onPageChange={handlePageChange}
         />
       </div>
-    </Suspense>
+    </>
   );
 }
