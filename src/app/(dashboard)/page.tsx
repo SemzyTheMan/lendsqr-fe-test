@@ -1,7 +1,8 @@
 import DashboardPageContent from "@/components/DasboardPageContent/DashboardPageContent";
 
 const Page = () => {
-  return <DashboardPageContent />;
+  
+  return  <DashboardPageContent />;
 };
 
 export default Page;

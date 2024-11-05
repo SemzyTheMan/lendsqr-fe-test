@@ -1,4 +1,5 @@
 import DashboardCard from "../DashboardCard/DashboardCard";
+import DashboardTableContent from "../DashboardTable/DashboardTableContent";
 import {
   ActiveUsersIcon,
   UserIcons,
@@ -36,6 +37,7 @@ const DashboardPageContent = () => {
           />
         ))}
       </div>
+      <DashboardTableContent/>
     </section>
   );
 };

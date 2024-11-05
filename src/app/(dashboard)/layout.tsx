@@ -1,5 +1,5 @@
 import SideNav from "@/components/SideNav/SideNav";
-import TopNav from "@/components/TopNav/TopNav";
+
 
 export default function DashboardLayout({
   children,
@@ -7,12 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="dashboard_container">
-      <TopNav />
+    <main className="dashboard_container">
       <section className="dashboard_subcontainer ">
         <SideNav />
         <div className="dashboard_content">{children}</div>
       </section>
-    </section>
+    </main>
   );
 }

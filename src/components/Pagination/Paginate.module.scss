@@ -1,0 +1,22 @@
+@import "../../app//styles/variables";
+
+.chevron_container {
+  background: #213f7d1a;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  * {
+    color: $ash-f7;
+  }
+}
+.pagination_item {
+  color: $ash-f7;
+  font-size: 1.6rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+.pagination_item_active{
+    font-weight: 500;
+}

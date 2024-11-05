@@ -12,6 +12,8 @@ $blue-grey: #213f7d;
   width: inherit;
   height: 10rem;
   padding: 2rem;
+  position: relative;
+  z-index: 1000;
 }
 .input {
   border: 1px solid rgba(33, 63, 125, 0.2);
