@@ -1,0 +1,5 @@
+@import "variables";
+@mixin thick-text {
+  color: $blue-grey;
+  font-weight: 500;
+}

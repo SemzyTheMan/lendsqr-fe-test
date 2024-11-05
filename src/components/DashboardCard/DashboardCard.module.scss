@@ -1,0 +1,23 @@
+$ash-f7: #545f7d;
+$blue-grey: #213f7d;
+.card_container {
+  border-width: 0px, 0px, 0px, 0px;
+  border-style: solid;
+  border-color: #213f7d0f;
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  background: #ffffff;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+ 
+  
+}
+.card_title {
+  color: $ash-f7;
+}
+.card_count {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: $blue-grey;
+}

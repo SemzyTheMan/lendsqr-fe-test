@@ -1,0 +1,16 @@
+@import "../../app/styles/mixins";
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.container {
+ 
+  
+}
+.dashboard_header {
+  @include thick-text;
+
+  padding: 2rem 0;
+  
+}

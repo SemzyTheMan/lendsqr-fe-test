@@ -1,0 +1,128 @@
+@import "../../app/styles/variables";
+.table_container {
+  border: 1px solid #213f7d0f;
+  background-color: white;
+  border-radius: 4px;
+  margin: 3rem 0;
+  padding: 2rem;
+  position: relative;
+  width: 100%;
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  * {
+    color: $ash-f7;
+    font-size: 1.2rem;
+  }
+  th {
+    padding: 0;
+    font-size: 1.2rem;
+  }
+  td {
+    font-size: 1.4rem;
+    padding: 2rem 0;
+  }
+}
+.header_text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+.dropdown_container {
+  font-size: 1.4rem;
+  width: fit-content;
+  box-shadow: 3px 5px 20px 0px #0000000a;
+  border: 1px solid #545f7d0a;
+  background-color: white;
+  * {
+    font-size: 1.4rem;
+    color: $ash-f7;
+  }
+}
+.dropdown_item {
+  width: 100%;
+  font-weight: 500;
+  justify-content: start;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+}
+.active_button {
+  background: rgba(57, 205, 98, 0.06);
+
+  display: grid;
+  place-items: center;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  width: fit-content;
+  p {
+    font-size: 1.4rem;
+    color: rgba(57, 205, 98, 1);
+  }
+}
+.blacklisted_button {
+  background: rgba($btn-red, 0.06);
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  width: fit-content;
+  p {
+    font-size: 1.4rem;
+    color: $btn-red;
+  }
+}
+.inactive_button {
+  background: rgba($ash-f7, 0.06);
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  width: fit-content;
+  p {
+    font-size: 1.4rem;
+    color: $ash-f7;
+  }
+}
+.pagination_container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.pagination_first {
+  color: $ash-f7;
+
+  select {
+    background-color: rgba($ash-f7, 0.1);
+    border-radius: 4px;
+    width: 8rem;
+    height: 3rem;
+    option {
+      padding: 1rem;
+    }
+  }
+}
+.popover_container {
+  width: fit-content;
+  height: 50rem;
+  overflow-y: scroll;
+  z-index: 1000;
+}
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    width: 9.8rem;
+    height: 4rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+}
+.btn_first {
+  background: white;
+  border: 1px solid #545f7d;
+  color: $ash-f7;
+}
+.btn_second {
+  background: $btn-green;
+  color: white;
+}
