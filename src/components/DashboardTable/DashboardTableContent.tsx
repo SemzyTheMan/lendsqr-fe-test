@@ -2,43 +2,44 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import PaginateComponent from "../Pagination/PaginateComponent";
-import { columns, Dashboard } from "./columns";
+import { columns } from "./columns";
 import { DataTable } from "./data-table";
 import styles from "./Table.module.scss";
-
-function getData(): Dashboard[] {
-  // Fetch data from your API here.
-  const data = Array.from({ length: 500 }, (_, i) => ({
-    id: i.toString(),
-    organization: "Lendsqr",
-    userName: "johndoe",
-    email: "adedeji@lendsqr.com",
-    phone: "09078456478",
-    dateJoined: "May 15, 2020 10:00 AM",
-    status: "Inactive",
-  }));
-  return data;
-}
+import { useGetUserListsQuery } from "@/services/dashboard";
+import { User } from "@/types";
+import { formatISODate } from "@/lib/utils";
 
 export default function DashboardTableContent() {
-  const data = getData();
   const searchParams = useSearchParams();
   const page = Number(searchParams.get("page")) || 1;
   const params = new URLSearchParams(searchParams.toString());
   const pathName = usePathname();
   const router = useRouter();
-
+  const { data: dashboardData, isLoading } = useGetUserListsQuery();
   const handlePageChange = (page: number) => {
     params.set("page", page.toString());
     router.push(`${pathName}?${params.toString()}`);
   };
-
   const first = (page - 1) * 100;
   const last = page * 100;
 
+  const renderedData = dashboardData?.map((data: User) => {
+    return {
+      ...data,
+      phone: data?.personalInformation?.phone,
+      email: data?.personalInformation?.email,
+      dateJoined: formatISODate(new Date(data?.createdAt)),
+      userName: data?.personalInformation?.fullName?.split(" ")[0],
+    };
+  });
+
   return (
     <>
-      <DataTable columns={columns} data={data.slice(first, last)} />
+      <DataTable
+        isLoading={isLoading}
+        columns={columns}
+        data={renderedData?.slice(first, last) || []}
+      />
       <div className={`${styles.pagination_container}`}>
         <p className={`${styles.pagination_first}`}>
           Showing{" "}

@@ -55,7 +55,7 @@ const PaginateComponent = (props: Props) => {
 
   // else show the pagination
   return (
-    <div className=" w-full flex font-sans justify-center my-2  ">
+    <div className="flex font-sans justify-end my-2  ">
       <div className="flex items-center gap-[7px]">
         <button
           disabled={currentPage === 1}
