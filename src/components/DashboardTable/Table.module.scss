@@ -49,32 +49,42 @@
 }
 .active_button {
   background: rgba(57, 205, 98, 0.06);
-
   display: grid;
   place-items: center;
-  padding: 1rem 2rem;
-  border-radius: 1.5rem;
-  width: fit-content;
   p {
     font-size: 1.4rem;
     color: rgba(57, 205, 98, 1);
   }
 }
-.blacklisted_button {
-  background: rgba($btn-red, 0.06);
+.all_button {
   padding: 1rem 2rem;
   border-radius: 1.5rem;
   width: fit-content;
+}
+.blacklisted_button {
+  background: rgba($btn-red, 0.06);
   p {
     font-size: 1.4rem;
     color: $btn-red;
   }
 }
+.pending_button {
+  background: rgba(#e9b200, 0.1);
+  p {
+    font-size: 1.4rem;
+    color: #e9b200;
+  }
+}
+.email_text {
+  width: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.4rem;
+
+  white-space: nowrap;
+}
 .inactive_button {
   background: rgba($ash-f7, 0.06);
-  padding: 1rem 2rem;
-  border-radius: 1.5rem;
-  width: fit-content;
   p {
     font-size: 1.4rem;
     color: $ash-f7;

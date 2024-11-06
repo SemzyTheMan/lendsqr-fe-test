@@ -16,21 +16,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import { Eye, MoreVertical, UserRoundCheck, UserX } from "lucide-react";
 import { DateInput, Input, SelectInput } from "../Forms/Forms";
+import { User } from "@/types";
 
-export interface Dashboard {
-  id: string;
-  organization: string;
-  userName: string;
-  email: string;
-  phone: string;
-  dateJoined: string;
-  status: string;
-}
-
-export const columns: ColumnDef<Dashboard>[] = [
+export const columns: ColumnDef<User>[] = [
   {
     accessorKey: "organization",
     header: () => {
@@ -47,6 +44,20 @@ export const columns: ColumnDef<Dashboard>[] = [
     accessorKey: "email",
     header: () => {
       return <TextHelper text="EMAIL" />;
+    },
+    cell: ({ row }) => {
+      return (
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger className={`${styles.email_text}`}>
+              {row.original.email}
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{row.original.email}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      );
     },
   },
   {
@@ -70,11 +81,13 @@ export const columns: ColumnDef<Dashboard>[] = [
       const status = row.original?.status;
       return (
         <div
-          className={` ${
+          className={`${styles.all_button} ${
             status.toLowerCase() == "active"
               ? styles.active_button
               : status.toLowerCase() == "blacklisted"
               ? styles.blacklisted_button
+              : status.toLowerCase() == "pending"
+              ? styles.pending_button
               : styles.inactive_button
           }`}
         >
@@ -121,11 +134,15 @@ const TextHelper = ({ text }: { text: string }) => {
   return (
     <div className={`${styles.header_text}`}>
       <p> {text}</p>
-      <Popover >
+      <Popover>
         <PopoverTrigger>
           <FilterIcon />
         </PopoverTrigger>
-        <PopoverContent align="center" side="left" className={`${styles.popover_container} hide_scroll`}>
+        <PopoverContent
+          align="center"
+          side="left"
+          className={`${styles.popover_container} hide_scroll`}
+        >
           <SelectInput label="Organization" />
           <Input label="Username" placeholder="User" />
           <Input label="Email" placeholder="Email" />
