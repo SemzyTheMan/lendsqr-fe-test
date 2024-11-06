@@ -5,6 +5,7 @@ import { SearchIcon } from "lucide-react";
 import styles from "./TopNav.module.scss";
 import { Down, Notification } from "../icons/Others";
 import Link from "next/link";
+import { memo } from "react";
 
 const TopNav = () => {
   return (
@@ -33,4 +34,4 @@ const TopNav = () => {
   );
 };
 
-export default TopNav;
+export default  memo(TopNav);

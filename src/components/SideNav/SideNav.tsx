@@ -12,9 +12,22 @@ import {
   WhiteListIcon,
 } from "../icons/CustomerSectionIcons";
 import styles from "./SideNav.module.scss";
-import { FeesandChargesIcon, ReportsIcon, SavingsProductIcon, ServiceAccountIcon, ServicesIcon, SettlementIcon, TransactionIcon } from "../icons/BussinessSectionIcons";
-import { AuditLogsIcon, FeesandPricingIcon, PreferencesIcon } from "../icons/SettingsSectionIcon";
-
+import {
+  FeesandChargesIcon,
+  ReportsIcon,
+  SavingsProductIcon,
+  ServiceAccountIcon,
+  ServicesIcon,
+  SettlementIcon,
+  TransactionIcon,
+} from "../icons/BussinessSectionIcons";
+import {
+  AuditLogsIcon,
+  FeesandPricingIcon,
+  PreferencesIcon,
+} from "../icons/SettingsSectionIcon";
+import { Logout, Tire } from "../icons/Others";
+import Link from "next/link";
 
 const SideNav = () => {
   return (
@@ -30,7 +43,12 @@ const SideNav = () => {
         text="Dashboard"
       />
       <p className={`${styles.nav_sections}`}>CUSTOMERS</p>
-      <TextHelper svg={<UsersIcon />} text={"Users"} />
+
+      <TextHelper
+        svg={<UsersIcon />}
+        text={"Users"}
+        className={`${styles.nav_active}`}
+      />
       <TextHelper svg={<GuarantorsIcon />} text={"Guarantors"} />
       <TextHelper svg={<LoansIcon />} text={"Loans"} />
       <TextHelper svg={<DecisionIcon />} text={"Decision Models"} />
@@ -52,6 +70,12 @@ const SideNav = () => {
       <TextHelper svg={<PreferencesIcon />} text={"Preferences"} />
       <TextHelper svg={<FeesandPricingIcon />} text={"Fees and Pricing"} />
       <TextHelper svg={<AuditLogsIcon />} text={"Audit logs"} />
+      <TextHelper svg={<Tire />} text={"Systems Messages"} />
+      <div className={`${styles.nav_texthelper} ${styles.logout}`}>
+        <Logout />
+        <Link href={"/"}>Logout</Link>
+      </div>
+      <p className={`${styles.final_text}`}>v1.2.0</p>
     </div>
   );
 };

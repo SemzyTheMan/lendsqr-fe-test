@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Skeleton } from "../ui/skeleton";
+import { Skeleton } from "../../ui/skeleton";
 import styles from "./Table.module.scss";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -36,7 +36,7 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className={`${styles.table_container}`}>
+    <div className={`${styles.table_container} hide_scroll`}>
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
