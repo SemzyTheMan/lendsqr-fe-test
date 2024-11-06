@@ -6,7 +6,7 @@ import AuthImage from "../assets/login_image.png";
 import styles from "./Auth.module.scss";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const myFont = localFont({
   src: "../../app/fonts/AvenirNextLTPro-Regular.otf",
@@ -15,6 +15,7 @@ const AuthPageContent = () => {
   const [type, setType] = useState("password");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
   return (
     <div className={`${styles.container} ${myFont.className}`}>
       <Image
@@ -59,11 +60,13 @@ const AuthPageContent = () => {
           </div>
           <p className={`${styles.forgot_text}`}>FORGOT PASSWORD?</p>
           <Button
-            asChild
+            onClick={() => {
+              router.push("/dashboard");
+            }}
             disabled={email.trim() == "" || password.trim() == ""}
             className={`${styles.login_btn}`}
           >
-            <Link href={"/dashboard"}> LOG IN</Link>
+            LOG IN
           </Button>
         </div>
       </div>
