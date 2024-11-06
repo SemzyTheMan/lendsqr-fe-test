@@ -3,15 +3,17 @@ import styles from "./Forms.module.scss";
 export const Input = ({
   label,
   placeholder,
+  className,
 }: {
-  label: string;
+  label?: string;
   placeholder: string;
+  className?: string;
 }) => {
   return (
     <div className={`${styles.input_container}`}>
       <label htmlFor="">{label}</label>
       <input
-        className={`${styles.all_forms}`}
+        className={`${styles.all_forms} ${className}`}
         placeholder={placeholder}
         type="text"
       />

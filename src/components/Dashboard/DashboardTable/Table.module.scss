@@ -1,9 +1,11 @@
-@import "../../app/styles/variables";
+@import "../../../app/styles/variables";
 .table_container {
   border: 1px solid #213f7d0f;
   background-color: white;
   border-radius: 4px;
   margin: 3rem 0;
+  max-height: 60rem;
+  overflow-y: scroll;
   padding: 2rem;
   position: relative;
   width: 100%;
@@ -45,6 +47,7 @@
   justify-content: start;
   padding: 1rem;
   align-items: center;
+  cursor: pointer;
   gap: 1rem;
 }
 .active_button {

@@ -1,13 +1,14 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import PaginateComponent from "../Pagination/PaginateComponent";
-import { columns } from "./columns";
+import PaginateComponent from "../../Pagination/PaginateComponent";
+
 import { DataTable } from "./data-table";
 import styles from "./Table.module.scss";
 import { useGetUserListsQuery } from "@/services/dashboard";
 import { User } from "@/types";
 import { formatISODate } from "@/lib/utils";
+import { Columns } from "./columns";
 
 export default function DashboardTableContent() {
   const searchParams = useSearchParams();
@@ -22,7 +23,7 @@ export default function DashboardTableContent() {
   };
   const first = (page - 1) * 100;
   const last = page * 100;
-
+  const columns = Columns();
   const renderedData = dashboardData?.map((data: User) => {
     return {
       ...data,

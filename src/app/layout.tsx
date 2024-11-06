@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import "./styles/globals.scss";
-import TopNav from "@/components/TopNav/TopNav";
+
 import { StoreProvider } from "@/StoreProvider";
 
 const work_sans = Work_Sans({
@@ -23,7 +23,6 @@ export default function RootLayout({
     <html lang="en">
       <StoreProvider>
         <body className={`${work_sans.className}  antialiased`}>
-          <TopNav />
           {children}
         </body>
       </StoreProvider>
